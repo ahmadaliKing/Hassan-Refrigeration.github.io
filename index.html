@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14 August Mubarak 🎉 | Award</title>
+  <style>
+    :root{
+      --green:#006c35; /* Pakistan flag green */
+      --green-dark:#05552c;
+      --white:#ffffff;
+      --gold:#f6c453;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Naskh Arabic, Noto Nastaliq Urdu, Arial, sans-serif;
+      color:#0b1f14;
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.35), transparent 60%),
+                  linear-gradient(180deg, #0a2c1a 0%, var(--green) 40%, #0b3b21 100%);
+      overflow-x:hidden;
+    }
+
+    /* Top bunting (pennants) */
+    .bunting{
+      position:fixed; inset:0 0 auto 0; height:110px; pointer-events:none; z-index:5;
+      background:
+        repeating-linear-gradient(135deg,var(--white) 0 20px,var(--green) 20px 40px),
+        repeating-linear-gradient(-135deg,var(--green) 0 20px,var(--white) 20px 40px);
+      -webkit-mask: linear-gradient(#000,#000) top/100% 55% no-repeat,
+                    radial-gradient(22px 28px at 20px 55px, transparent 53%, #000 55%) left top/40px 55px repeat-x;
+      mask: linear-gradient(#000,#000) top/100% 55% no-repeat,
+             radial-gradient(22px 28px at 20px 55px, transparent 53%, #000 55%) left top/40px 55px repeat-x;
+      animation: sway 3.5s ease-in-out infinite;
+      transform-origin: top center;
+      opacity:.9;
+    }
+    @keyframes sway{0%,100%{transform:rotate(0.6deg)}50%{transform:rotate(-0.6deg)}}
+
+    /* Floating balloons */
+    .balloon{position:fixed; bottom:-100px; width:24px; height:30px; border-radius:50% 50% 50% 50%/55% 55% 45% 45%;
+      background:var(--white); left:10%; opacity:.85; z-index:1;
+      box-shadow: inset -4px -6px 0 rgba(0,0,0,.08);
+      animation: floatUp 14s linear infinite;
+    }
+    .balloon::after{content:""; position:absolute; left:50%; top:100%; width:2px; height:22px; background:rgba(255,255,255,.65)}
+    .balloon.g{background:var(--green)}
+    .balloon:nth-child(1){left:8%; animation-duration:16s}
+    .balloon:nth-child(2){left:22%; animation-duration:13s}
+    .balloon:nth-child(3){left:36%; animation-duration:18s}
+    .balloon:nth-child(4){left:64%; animation-duration:15s}
+    .balloon:nth-child(5){left:78%; animation-duration:19s}
+    .balloon:nth-child(6){left:90%; animation-duration:12s}
+    @keyframes floatUp{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-50vh) rotate(4deg)}100%{transform:translateY(-105vh) rotate(-4deg)}}
+
+    /* Hero section */
+    .hero{
+      min-height:100svh; display:grid; place-items:center; position:relative; z-index:2; padding:24px;
+    }
+    .card{
+      width:min(920px,92vw); background:rgba(255,255,255,.92); border-radius:28px; padding:32px 28px; 
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      border:2px solid rgba(255,255,255,.6);
+      backdrop-filter: blur(6px);
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; font-weight:700; letter-spacing:.3px;
+      border:1.5px dashed var(--green-dark); color:var(--green-dark); background:#e9f4ee;
+    }
+    .pk-flag{
+      width:46px; height:28px; position:relative; background:var(--green); border:1px solid #083a22; border-radius:3px; box-shadow:0 1px 0 rgba(0,0,0,.25) inset;
+    }
+    .pk-flag::before{/* crescent */ content:""; position:absolute; width:16px; height:16px; border-radius:50%; background:var(--white); left:16px; top:6px; 
+      box-shadow: -4px 0 0 4px var(--green);
+    }
+    .pk-flag::after{/* star */ content:"★"; position:absolute; color:var(--white); font-size:14px; left:28px; top:3px; transform:rotate(18deg);
+      text-shadow:0 0 2px rgba(255,255,255,.85);
+    }
+
+    h1{font-size: clamp(28px, 4.5vw, 54px); margin:14px 0 8px; color:#092e1b}
+    p.lead{font-size: clamp(16px, 2.2vw, 22px); color:#174b2b; margin:0 0 10px}
+    .sparks{color:var(--gold)}
+
+    /* Award button */
+    .award-wrap{margin-top:22px; display:flex; flex-direction:column; align-items:center; gap:12px}
+    .award-btn{
+      --br:22px; position:relative; 
+      display:inline-flex; align-items:center; justify-content:center; gap:12px; 
+      font-weight:800; font-size:clamp(18px,2.5vw,22px);
+      padding:16px 26px; border-radius:var(--br); border:0; cursor:pointer;
+      color:#073b20; background:linear-gradient(180deg, #fff 0%, #f7fff9 50%, #e7ffee 100%);
+      box-shadow: 0 10px 22px rgba(0,0,0,.18), 0 0 0 3px rgba(255,255,255,.6) inset;
+      transition: transform .12s ease, box-shadow .18s ease;
+      outline: none;
+    }
+    .award-btn:hover{transform: translateY(-1px); box-shadow: 0 14px 28px rgba(0,0,0,.22), 0 0 0 3px rgba(255,255,255,.8) inset}
+    .award-btn:active{transform: translateY(0)}
+    .award-btn .medal{width:28px; height:28px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #fff 0 24%, #ffe9a6 26% 50%, #eab741 52% 100%);
+      box-shadow:0 0 0 2px #d1a531 inset, 0 4px 10px rgba(0,0,0,.25);
+      position:relative;
+    }
+    .award-btn .medal::after{/* ribbon */ content:""; position:absolute; left:50%; top:100%; transform:translateX(-50%);
+      width:20px; height:18px; background:linear-gradient(90deg, var(--green) 0 50%, var(--white) 50% 100%);
+      clip-path: polygon(0 0,100% 0,100% 80%,50% 100%,0 80%);
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,.15));
+    }
+
+    .note{font-size:14px; color:#0d4024; opacity:.85}
+
+    /* Falling confetti (canvas covers screen) */
+    #confetti{position:fixed; inset:0; pointer-events:none; z-index:4}
+
+    /* Footer */
+    footer{position:relative; z-index:2; text-align:center; color:#e8fff2; padding:24px 10px 30px; font-size:14px}
+    .made{opacity:.9}
+
+    /* Sparkle animation under heading */
+    .sparkle-row{display:flex; justify-content:center; gap:8px; margin:12px 0 6px}
+    .sparkle{width:10px; height:10px; background:radial-gradient(circle, #fff 0 40%, var(--gold) 45% 100%);
+      border-radius:50%; filter: drop-shadow(0 0 6px rgba(255,211,96,.95)); animation: twinkle 1.6s ease-in-out infinite;
+    }
+    .sparkle:nth-child(2){animation-delay:.4s}
+    .sparkle:nth-child(3){animation-delay:.8s}
+    @keyframes twinkle{0%,100%{transform:scale(.8); opacity:.7}50%{transform:scale(1.15); opacity:1}}
+
+    /* Responsive Urdu typography tweak */
+    @supports (font-variation-settings: normal){
+      body{font-family: 'Noto Nastaliq Urdu', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+    }
+      /* Claim modal */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:10}
+    .modal.show{display:flex}
+    .modal::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.45); backdrop-filter: blur(2px)}
+    .modal-card{position:relative; background:#ffffff; border-radius:22px; width:min(720px,92vw); padding:22px 20px; z-index:1;
+      box-shadow:0 20px 60px rgba(0,0,0,.35); border:1px solid rgba(6,64,36,.12)}
+    .modal-h{margin:0 0 8px; font-size:clamp(22px,3.2vw,32px); color:#0b3b21}
+    .modal-p{margin:0 0 14px; color:#184c2b}
+    .reward{display:inline-block; font-weight:900; font-size:clamp(24px,3.5vw,36px); color:#0b3b21; background:#e9f4ee; border:2px dashed var(--green-dark);
+      padding:10px 14px; border-radius:16px}
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .btn{appearance:none; border:0; border-radius:12px; padding:10px 14px; font-weight:800; cursor:pointer; background:#f4fff8; color:#0b3b21;
+      box-shadow:0 6px 16px rgba(0,0,0,.15); border:1px solid rgba(6,64,36,.18)}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(180deg,#fff,#eafff2)}
+    .btn.ghost{background:transparent}
+
+    .progress{margin-top:14px; background:#eef7f1; border-radius:999px; height:14px; overflow:hidden; border:1px solid rgba(6,64,36,.18)}
+    .bar{height:100%; width:0%; background:linear-gradient(90deg,#7cd6a8,#2fb673)}
+    .small{font-size:12px; color:#0d4024; margin-top:6px}
+
+    .toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%); background:#ffffff; color:#0b3b21; padding:10px 14px; border-radius:999px;
+      box-shadow:0 6px 18px rgba(0,0,0,.18); border:1px solid rgba(12,68,39,.25); font-weight:700; z-index:11}
+  </style>
+</head>
+<body>
+  <div class="bunting" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <!-- Balloons -->
+  <div class="balloon"></div>
+  <div class="balloon g"></div>
+  <div class="balloon"></div>
+  <div class="balloon g"></div>
+  <div class="balloon"></div>
+  <div class="balloon g"></div>
+
+  <main class="hero">
+    <section class="card" role="region" aria-label="Azadi Day Greeting Card">
+      <span class="badge"><span class="pk-flag" aria-hidden="true"></span> جشنِ آزادی مبارک</span>
+      <h1>14 اگست مبارک! <span class="sparks">✨</span></h1>
+      <p class="lead">پاکستان زندہ باد! آج ہم آزادی، امید اور اتحاد کا جشن منا رہے ہیں۔</p>
+      <div class="sparkle-row" aria-hidden="true">
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+        <span class="sparkle"></span>
+      </div>
+
+      <div class="award-wrap">
+        <button id="awardBtn" class="award-btn" type="button" aria-label="Award – Subscribe on YouTube">
+          <span class="medal" aria-hidden="true"></span>
+          <span>Award</span>
+        </button>
+        <div class="note">بٹن دبانے پر چینل سبسکرائب کنفرمیشن کھلے گا۔ آپ تصدیق کریں گے تو سبسکرائب ہو جائے گا۔</div>
+              <div class="note">بٹن دبانے پر چینل سبسکرائب کنفرمیشن کھلے گا۔ آپ تصدیق کریں گے تو سبسکرائب ہو جائے گا۔</div>
+      </div>
+
+      <!-- Claim / Reward Modal -->
+      <div id="claimModal" class="modal" aria-hidden="true" role="dialog" aria-label="Reward Claim">
+        <div class="modal-card">
+          <h2 class="modal-h">سبسکرائب کے بعد انعام حاصل کریں 🎁</h2>
+          <p class="modal-p">آپ کا انعام: <span class="reward">Rs 5,000</span></p>
+          <p class="modal-p">انعام کلیم کرنے کے لئے براہِ کرم اس صفحے کو <strong>5 دوستوں</strong> کے ساتھ شیئر کریں۔ شیئر مکمل ہوتے ہی انعام ان لاک ہو جائے گا۔</p>
+
+          <div class="actions">
+            <button id="confirmSubscribed" class="btn primary" type="button">میں نے سبسکرائب کر لیا ✅</button>
+            <button id="closeModal" class="btn ghost" type="button">بعد میں</button>
+          </div>
+
+          <div id="shareArea" style="display:none">
+            <div class="actions" style="margin-top:8px">
+              <button id="nativeShare" class="btn" type="button">شیئر (فون شیئر مینو)</button>
+              <a id="waShare" class="btn" href="#" target="_blank" rel="noopener">WhatsApp شیئر</a>
+              <a id="fbShare" class="btn" href="#" target="_blank" rel="noopener">Facebook شیئر</a>
+              <button id="copyLink" class="btn" type="button">لنک کاپی کریں</button>
+            </div>
+
+            <div class="progress"><div id="bar" class="bar"></div></div>
+            <div class="small"><span id="shareCount">0</span>/5 شیئر مکمل کریں</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="made">Designed with ❤ in Pakistan • #AzadiMubarak</div>
+  </footer>
+
+  <script>
+    // === Replace with your channel link ===
+    // Use channel ID or handle and keep '?sub_confirmation=1'
+    // Example with channel handle:
+    const CHANNEL_URL = 'https://www.youtube.com/@hassanrefrigeration?sub_confirmation=1';
+    // Example with channel ID:
+    // const CHANNEL_URL = 'https://www.youtube.com/channel/UCxxxxxxxxxxxx?sub_confirmation=1';
+
+    document.getElementById('awardBtn').addEventListener('click', () => {
+      const win = window.open(CHANNEL_URL, '_blank', 'noopener');
+      showToast('Subscribe window opened…');
+      openClaimModal();
+    });
+      // Optional tiny toast
+      const msg = document.createElement('div');
+      msg.textContent = 'Subscribe window opened…';
+      Object.assign(msg.style, {
+        position: 'fixed', left: '50%', bottom: '22px', transform: 'translateX(-50%)',
+        background: 'rgba(255,255,255,0.95)', color: '#0b3b21', padding: '10px 14px',
+        borderRadius: '999px', boxShadow: '0 6px 18px rgba(0,0,0,.18)', zIndex: 9,
+        border: '1px solid rgba(12,68,39,.25)', fontWeight: '700'
+      });
+      document.body.appendChild(msg);
+      setTimeout(()=> msg.remove(), 2000);
+    ;
+
+    // Reward / Share Logic
+    const modal = document.getElementById('claimModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    const confirmBtn = document.getElementById('confirmSubscribed');
+    const shareArea = document.getElementById('shareArea');
+    const shareCountEl = document.getElementById('shareCount');
+    const barEl = document.getElementById('bar');
+
+    const REQUIRED_SHARES = 5;
+    const STORE_KEY = 'azadi_share_count_v1';
+
+    function getCount(){ return Number(localStorage.getItem(STORE_KEY) || 0); }
+    function setCount(v){ localStorage.setItem(STORE_KEY, String(v)); renderProgress(); }
+    function incCount(){ setCount(Math.min(getCount()+1, REQUIRED_SHARES)); if(getCount()>=REQUIRED_SHARES){unlockReward();}}
+    function renderProgress(){
+      const c = getCount(); shareCountEl.textContent = c; barEl.style.width = (c/REQUIRED_SHARES*100)+'%';
+    }
+
+    function openClaimModal(){ modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); renderProgress(); }
+    function closeClaimModal(){ modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); }
+
+    function showToast(t){
+      const msg = document.createElement('div'); msg.className='toast'; msg.textContent=t; document.body.appendChild(msg);
+      setTimeout(()=> msg.remove(), 2200);
+    }
+
+    function unlockReward(){
+      showToast('🎉 Reward Unlocked: Rs 5,000');
+      // TODO: Connect your real reward/API logic here
+    }
+
+    closeModalBtn.addEventListener('click', closeClaimModal);
+
+    // After user confirms they subscribed, show share UI
+    confirmBtn.addEventListener('click', ()=>{
+      shareArea.style.display='block';
+      showToast('Thank you! Now share with 5 friends.');
+    });
+
+    // Share buttons
+    const shareText = '14 اگست مبارک! میرا صفحہ دیکھیں اور انعام ان لاک کریں 👉 ';
+    const shareUrl = window.location.href;
+
+    document.getElementById('nativeShare').addEventListener('click', async ()=>{
+      try{
+        if(navigator.share){
+          await navigator.share({title:'Azadi Day', text:shareText, url:shareUrl});
+          incCount();
+        }else{ showToast('Your device does not support native share. Use copy link.'); }
+      }catch(e){ /* user cancelled */ }
+    });
+
+    const wa = document.getElementById('waShare');
+    wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
+    wa.addEventListener('click', ()=> setTimeout(incCount, 800));
+
+    const fb = document.getElementById('fbShare');
+    fb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+    fb.addEventListener('click', ()=> setTimeout(incCount, 800));
+
+    document.getElementById('copyLink').addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText(shareUrl); showToast('Link copied!'); incCount(); }catch(e){ showToast('Copy failed'); }
+    });
+
+    // Also show modal when user returns focus (just in case)
+    let openedOnce = false;
+    window.addEventListener('focus', ()=>{ if(!openedOnce){ openedOnce=true; /*openClaimModal();*/ } });
+
+    // === Minimal vanilla confetti ===
+    (function confetti(){
+      const c = document.getElementById('confetti');
+      const ctx = c.getContext('2d');
+      let W, H, pieces = [];
+      const colors = ['#ffffff', '#e8fff2', '#a6e7c6', '#78d2a5', '#39a96b'];
+      function resize(){ W = c.width = window.innerWidth; H = c.height = window.innerHeight }
+      window.addEventListener('resize', resize); resize();
+      for(let i=0;i<180;i++) pieces.push(makePiece());
+      function makePiece(){
+        return {
+          x: Math.random()*W,
+          y: Math.random()*H - H,
+          r: 2+Math.random()*4,
+          s: 0.5+Math.random()*1.5,
+          a: Math.random()*Math.PI*2,
+          c: colors[(Math.random()*colors.length)|0]
+        }
+      }
+      function draw(){
+        ctx.clearRect(0,0,W,H);
+        pieces.forEach(p=>{
+          p.y += p.s*2; p.x += Math.sin(p.a+=0.02);
+          if(p.y>H+10) { p.y=-10; p.x=Math.random()*W; }
+          ctx.fillStyle=p.c; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
